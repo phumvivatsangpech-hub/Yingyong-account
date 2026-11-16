@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ยิ่งยงทอแสงสาดส่อง ยิ่งกว่ายิ่งยวดสวดมนต์</string>
+
+    <!-- ทั่วไป -->
+    <string name="back">กลับ</string>
+    <string name="menu">เมนู</string>
+    <string name="ok">ตกลง</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="save">บันทึก</string>
+    <string name="delete">ลบ</string>
+    <string name="edit">แก้ไข</string>
+    <string name="clear">ล้าง</string>
+    <string name="none">ไม่ระบุ</string>
+    <string name="all">ทั้งหมด</string>
+    <string name="name">ชื่อ</string>
+    <string name="confirm_delete">ลบ %1$s ใช่ไหม</string>
+
+    <!-- หน้าหลัก -->
+    <string name="home_title">รายจ่าย</string>
+    <string name="stock">ของใช้</string>
+    <string name="categories">หมวดหมู่</string>
+    <string name="priorities">ความสำคัญ</string>
+    <string name="total_unpaid">ยอดที่ยังไม่ได้จ่าย</string>
+    <string name="save_per_day_total">ต้องเก็บรวมวันละ %1$s</string>
+    <string name="overdue_summary">เลยกำหนด %1$d รายการ ขาดอีก %2$s</string>
+    <string name="tab_unpaid">ยังไม่จ่าย</string>
+    <string name="tab_paid">จ่ายแล้ว</string>
+    <string name="empty">ยังไม่มีรายการ</string>
+    <string name="due_on">ครบกำหนด %1$s</string>
+    <string name="due_line">ครบกำหนด %1$s (อีก %2$d วัน) · เก็บวันละ %3$s</string>
+    <string name="overdue_line">เลยกำหนด %1$s ขาดอีก %2$s</string>
+
+    <!-- นำเข้าไฟล์ -->
+    <string name="import_file">นำเข้าไฟล์ CSV / Excel</string>
+    <string name="import_found">พบ %1$d รายการ เช่น %2$s\n\nนำเข้าทั้งหมดใช่ไหม</string>
+    <string name="import_confirm">นำเข้า</string>
+    <string name="import_done">นำเข้า %1$d รายการแล้ว</string>
+    <string name="import_empty">ไม่พบรายการในไฟล์ คอลัมน์ที่ใช้ได้: ชื่อ, รายการย่อย, จำนวนเงิน, จำนวน, ของใช้, หมวดหมู่, ความสำคัญ, วันครบกำหนด, หมายเหตุ, ลิงก์</string>
+    <string name="import_xls">ไม่รองรับไฟล์ .xls ให้บันทึกเป็น .xlsx หรือ .csv ก่อน</string>
+    <string name="import_failed">อ่านไฟล์ไม่ได้ (รองรับ .csv และ .xlsx ขนาดไม่เกิน 5 MB)</string>
+
+    <!-- รายการรายจ่าย -->
+    <string name="add_expense">เพิ่มรายการ</string>
+    <string name="edit_expense">แก้ไขรายการ</string>
+    <string name="amount">จำนวนเงิน (บาท)</string>
+    <string name="amount_computed">ยอดคำนวณจากรายการย่อยหรือลิงก์</string>
+    <string name="category">หมวดหมู่</string>
+    <string name="priority">ความสำคัญ</string>
+    <string name="due">วันครบกำหนด</string>
+    <string name="note">หมายเหตุ</string>
+    <string name="packs">จำนวน %1$d ชิ้น</string>
+    <string name="mark_paid">จ่ายแล้ว</string>
+    <string name="mark_unpaid">ยกเลิกจ่ายแล้ว</string>
+    <string name="copy_next_month">สร้างของเดือนหน้า</string>
+    <string name="copied">สร้างรายการเดือนหน้าแล้ว</string>
+
+    <!-- เก็บเงิน -->
+    <string name="saved_of">เก็บแล้ว %1$s จาก %2$s</string>
+    <string name="add_deposit">เก็บเงิน</string>
+    <string name="deposit_amount">จำนวนที่เก็บ (บาท)</string>
+
+    <!-- รายการย่อย -->
+    <string name="sub_items">รายการย่อย</string>
+    <string name="add_sub">เพิ่มรายการย่อย</string>
+    <string name="unit_price">ราคาต่อหน่วย (บาท)</string>
+    <string name="qty">จำนวน</string>
+    <string name="use_stock">ใช้จากของใช้</string>
+    <string name="from_stock">ใช้ %1$s %2$d %3$s</string>
+    <string name="stock_short">ของไม่พอ ขาด %1$d %2$s</string>
+
+    <!-- ลิงก์ -->
+    <string name="links">ลิงก์สินค้า</string>
+    <string name="add_link">เพิ่มลิงก์</string>
+    <string name="url">ลิงก์ (URL)</string>
+    <string name="shop">ชื่อร้าน (ไม่ใส่ก็ได้)</string>
+    <string name="price">ราคา (บาท)</string>
+    <string name="open">เปิด</string>
+    <string name="sold_out">หมด</string>
+    <string name="in_stock">มีของ</string>
+    <string name="all_sold_out">ทุกลิงก์หมด ใช้ราคาล่าสุดที่รู้</string>
+
+    <!-- หมวดหมู่ / ความสำคัญ -->
+    <string name="add">เพิ่ม</string>
+    <string name="move_up">เลื่อนขึ้น</string>
+    <string name="move_down">เลื่อนลง</string>
+    <string name="color_n">สี %1$d</string>
+    <string-array name="default_categories">
+        <item>ที่อยู่อาศัย</item>
+        <item>อาหาร</item>
+        <item>เดินทาง</item>
+        <item>บิล/ค่าน้ำไฟเน็ต</item>
+        <item>หนี้/บัตร</item>
+        <item>ช้อปปิ้ง</item>
+        <item>สุขภาพ</item>
+        <item>อื่นๆ</item>
+    </string-array>
+    <string-array name="default_priorities">
+        <item>สูง</item>
+        <item>กลาง</item>
+        <item>ต่ำ</item>
+    </string-array>
+
+    <!-- ของใช้ (สต็อก) -->
+    <string name="add_stock">เพิ่มของใช้</string>
+    <string name="edit_stock">แก้ไขของใช้</string>
+    <string name="remaining">คงเหลือ</string>
+    <string name="unit">หน่วย (เช่น รอบ)</string>
+    <string name="alert_at">เตือนเมื่อเหลือไม่เกิน</string>
+    <string name="units_per_pack">ซื้อ 1 ชิ้นใช้ได้กี่หน่วย</string>
+    <string name="stock_remaining">เหลือ %1$d %2$s</string>
+    <string name="stock_planned">วางแผนใช้ %1$d %2$s</string>
+    <string name="refill">เติม</string>
+    <string name="refill_amount">จำนวนที่เติม</string>
+    <string name="buy_item">ซื้อ %1$s</string>
+</resources>

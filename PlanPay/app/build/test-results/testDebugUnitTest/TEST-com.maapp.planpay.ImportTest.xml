@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.maapp.planpay.ImportTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-16T09:06:27.945Z" hostname="ADMIN-PHUMVIVAT" time="0.196">
+  <properties/>
+  <testcase name="datesInCommonFormats" classname="com.maapp.planpay.ImportTest" time="0.066"/>
+  <testcase name="rowsWithoutHeaderUseDefaultOrder" classname="com.maapp.planpay.ImportTest" time="0.034"/>
+  <testcase name="xlsxFirstSheetWithSharedStringsAndGaps" classname="com.maapp.planpay.ImportTest" time="0.073"/>
+  <testcase name="rowsBecomeExpensesWithHeaderInAnyOrder" classname="com.maapp.planpay.ImportTest" time="0.004"/>
+  <testcase name="subItemRowsGroupUnderTheirMainItem" classname="com.maapp.planpay.ImportTest" time="0.005"/>
+  <testcase name="thaiExcelCsvIsDecodedFromWindows874" classname="com.maapp.planpay.ImportTest" time="0.002"/>
+  <testcase name="csvHandlesQuotesBomAndSemicolons" classname="com.maapp.planpay.ImportTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
