@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.maapp.planpay.app-debug-37:/font_plex_bold.ttf.flat",
+        "source": "com.maapp.planpay.app-main-39:/font/plex_bold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\PLE\\.gradle\\daemon\\9.4.1\\com.maapp.planpay.app-debug-37:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\PLE\\.gradle\\daemon\\9.4.1\\com.maapp.planpay.app-main-39:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "com.maapp.planpay.app-debug-37:/font_plex_semibold.ttf.flat",
+        "source": "com.maapp.planpay.app-main-39:/font/plex_semibold.ttf"
+    },
+    {
+        "merged": "com.maapp.planpay.app-debug-37:/font_plex_regular.ttf.flat",
+        "source": "com.maapp.planpay.app-main-39:/font/plex_regular.ttf"
+    },
+    {
+        "merged": "C:\\Users\\PLE\\.gradle\\daemon\\9.4.1\\com.maapp.planpay.app-debug-37:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\PLE\\.gradle\\daemon\\9.4.1\\com.maapp.planpay.app-main-39:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.maapp.planpay.app-debug-37:/font_plex_medium.ttf.flat",
+        "source": "com.maapp.planpay.app-main-39:/font/plex_medium.ttf"
+    }
+]

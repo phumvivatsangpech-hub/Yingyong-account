@@ -1,50 +1,43 @@
 package com.maapp.planpay
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun StockScreen(go: (String) -> Unit, back: () -> Unit) {
     val d = Store.data
+    val muted = MaterialTheme.colorScheme.onSurfaceVariant
     var refill by remember { mutableStateOf<StockItem?>(null) }
 
     Screen(
         stringResource(R.string.stock), back,
-        fab = { FloatingActionButton({ go("stockEdit") }) { Icon(Icons.Default.Add, stringResource(R.string.add_stock)) } },
+        fab = { AddFab(stringResource(R.string.add_stock)) { go("stockEdit") } },
     ) { pad ->
-        LazyColumn(
-            Modifier.padding(pad).fillMaxSize(),
-            contentPadding = PaddingValues(16.dp, 8.dp, 16.dp, 88.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            if (d.stock.isEmpty()) item { Text(stringResource(R.string.empty), Modifier.padding(16.dp)) }
-            items(d.stock, key = { it.id }) { s ->
-                OutlinedCard(onClick = { go("stockEdit:${s.id}") }, modifier = Modifier.fillMaxWidth()) {
-                    Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+        Column(Modifier.padding(pad).verticalScroll(rememberScrollState()).padding(Space.m, Space.m, Space.m, 96.dp)) {
+            if (d.stock.isEmpty()) Text(stringResource(R.string.empty), color = muted)
+            else Group {
+                d.stock.forEachIndexed { i, s ->
+                    if (i > 0) RowDivider()
+                    GroupRow({ go("stockEdit:${s.id}") }) {
                         Column(Modifier.weight(1f)) {
                             Text(s.name, style = MaterialTheme.typography.titleMedium)
                             Text(
                                 stringResource(R.string.stock_remaining, s.remaining, s.unit),
-                                color = if (d.isLow(s)) MaterialTheme.colorScheme.error else Color.Unspecified,
+                                color = if (d.isLow(s)) MaterialTheme.colorScheme.error else muted,
                             )
                             val p = d.planned(s.id)
-                            if (p > 0) Text(stringResource(R.string.stock_planned, p, s.unit), style = MaterialTheme.typography.bodySmall)
+                            if (p > 0) Text(stringResource(R.string.stock_planned, p, s.unit), style = MaterialTheme.typography.bodySmall, color = muted)
                         }
-                        TextButton({ refill = s }) { Text(stringResource(R.string.refill)) }
+                        SmallAction(stringResource(R.string.refill), strong = true) { refill = s }
                     }
                 }
             }
@@ -82,30 +75,33 @@ fun StockEditScreen(id: Long?, back: () -> Unit) {
         actions = { if (old != null) IconButton({ confirmDelete = true }) { Icon(Icons.Default.Delete, stringResource(R.string.delete)) } },
     ) { pad ->
         Column(
-            Modifier.padding(pad).verticalScroll(rememberScrollState()).padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+            Modifier.padding(pad).verticalScroll(rememberScrollState()).padding(Space.m),
+            verticalArrangement = Arrangement.spacedBy(Space.m),
         ) {
             TextField1(name, { name = it }, stringResource(R.string.name))
             IntField(remaining, { remaining = it }, stringResource(R.string.remaining))
             TextField1(unit, { unit = it }, stringResource(R.string.unit))
             IntField(alertAt, { alertAt = it }, stringResource(R.string.alert_at))
             IntField(perPack, { perPack = it }, stringResource(R.string.units_per_pack))
-            Picker(stringResource(R.string.category), d.categories, cat) { cat = it }
-            Picker(stringResource(R.string.priority), d.priorities, pri) { pri = it }
-            LinksSection(links) { links = it }
-            Button(
-                enabled = name.isNotBlank(),
-                modifier = Modifier.fillMaxWidth(),
-                onClick = {
-                    val s = (old ?: StockItem(name = "")).copy(
-                        name = name.trim(), remaining = remaining.toIntOrNull() ?: 0, unit = unit.trim(),
-                        alertAt = alertAt.toIntOrNull() ?: 0, unitsPerPack = maxOf(1, perPack.toIntOrNull() ?: 1),
-                        categoryId = cat, priorityId = pri, links = links,
-                    )
-                    Store.update { copy(stock = if (old == null) stock + s else stock.map { if (it.id == s.id) s else it }) }
-                    back()
-                },
-            ) { Text(stringResource(R.string.save)) }
+            Group {
+                Picker(stringResource(R.string.category), d.categories, cat) { cat = it }
+                RowDivider()
+                Picker(stringResource(R.string.priority), d.priorities, pri) { pri = it }
+            }
+            Group(stringResource(R.string.links)) {
+                Column(Modifier.padding(horizontal = Space.m, vertical = 4.dp)) {
+                    LinksSection(links, showTitle = false) { links = it }
+                }
+            }
+            PrimaryButton(stringResource(R.string.save), enabled = name.isNotBlank()) {
+                val s = (old ?: StockItem(name = "")).copy(
+                    name = name.trim(), remaining = remaining.toIntOrNull() ?: 0, unit = unit.trim(),
+                    alertAt = alertAt.toIntOrNull() ?: 0, unitsPerPack = maxOf(1, perPack.toIntOrNull() ?: 1),
+                    categoryId = cat, priorityId = pri, links = links,
+                )
+                Store.update { copy(stock = if (old == null) stock + s else stock.map { if (it.id == s.id) s else it }) }
+                back()
+            }
         }
     }
 

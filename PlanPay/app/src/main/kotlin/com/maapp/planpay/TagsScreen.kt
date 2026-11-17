@@ -2,19 +2,16 @@ package com.maapp.planpay
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -35,22 +32,23 @@ fun TagsScreen(isPriority: Boolean, back: () -> Unit) {
 
     Screen(
         stringResource(if (isPriority) R.string.priorities else R.string.categories), back,
-        fab = { FloatingActionButton({ editing = Tag(name = "", color = palette[0]) }) { Icon(Icons.Default.Add, stringResource(R.string.add)) } },
+        fab = { AddFab(stringResource(R.string.add)) { editing = Tag(name = "", color = palette[0]) } },
     ) { pad ->
-        LazyColumn(Modifier.padding(pad).fillMaxSize(), contentPadding = PaddingValues(bottom = 88.dp)) {
-            itemsIndexed(tags, key = { _, t -> t.id }) { i, t ->
-                Row(
-                    Modifier.fillMaxWidth().clickable { editing = t }.padding(horizontal = 16.dp, vertical = 8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Box(Modifier.size(20.dp).background(Color(t.color), CircleShape))
-                    Text(t.name, Modifier.weight(1f).padding(start = 12.dp))
-                    if (isPriority) {
-                        IconButton({ set(tags.swap(i, i - 1)) }, enabled = i > 0) {
-                            Icon(Icons.Default.KeyboardArrowUp, stringResource(R.string.move_up))
-                        }
-                        IconButton({ set(tags.swap(i, i + 1)) }, enabled = i < tags.lastIndex) {
-                            Icon(Icons.Default.KeyboardArrowDown, stringResource(R.string.move_down))
+        Column(Modifier.padding(pad).verticalScroll(rememberScrollState()).padding(Space.m, Space.m, Space.m, 96.dp)) {
+            if (tags.isEmpty()) Text(stringResource(R.string.empty), color = MaterialTheme.colorScheme.onSurfaceVariant)
+            else Group {
+                tags.forEachIndexed { i, t ->
+                    if (i > 0) RowDivider()
+                    GroupRow({ editing = t }) {
+                        Box(Modifier.size(20.dp).background(Color(t.color), CircleShape))
+                        Text(t.name, Modifier.weight(1f))
+                        if (isPriority) {
+                            IconButton({ set(tags.swap(i, i - 1)) }, enabled = i > 0) {
+                                Icon(Icons.Default.KeyboardArrowUp, stringResource(R.string.move_up))
+                            }
+                            IconButton({ set(tags.swap(i, i + 1)) }, enabled = i < tags.lastIndex) {
+                                Icon(Icons.Default.KeyboardArrowDown, stringResource(R.string.move_down))
+                            }
                         }
                     }
                 }
@@ -79,13 +77,14 @@ fun TagsScreen(isPriority: Boolean, back: () -> Unit) {
         ) {
             TextField1(name, { name = it }, stringResource(R.string.name))
             palette.chunked(5).forEachIndexed { row, colors ->
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(Space.s)) {
                     colors.forEachIndexed { i, c ->
                         val label = stringResource(R.string.color_n, row * 5 + i + 1)
                         Box(
-                            Modifier.size(40.dp)
+                            Modifier.size(48.dp)
                                 .semantics { contentDescription = label }
                                 .selectable(color == c, role = Role.RadioButton) { color = c }
+                                .padding(4.dp)
                                 .background(Color(c), CircleShape)
                                 .border(if (color == c) 3.dp else 0.dp, if (color == c) MaterialTheme.colorScheme.onSurface else Color.Transparent, CircleShape)
                         )

@@ -4,7 +4,7 @@
             "outputFile": "com.maapp.planpay.app-mergeDebugResources-35:/values-de/values-de.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\PLE\\.gradle\\caches\\9.4.1\\transforms\\7527a4b66ae450cb26e9a5f1c3799265\\transformed\\core-1.16.0\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\PLE\\.gradle\\caches\\9.4.1\\transforms\\93442297193129e3dd7d114ad1bbb33c\\transformed\\core-1.16.0\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\PLE\\.gradle\\caches\\9.4.1\\transforms\\c024f99bc2034363e5a947514c00265e\\transformed\\foundation\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\PLE\\.gradle\\caches\\9.4.1\\transforms\\3e25afc7d5be105f18422e00da890218\\transformed\\foundation\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\PLE\\.gradle\\caches\\9.4.1\\transforms\\f69376e542524ad6af60f6937ff6b901\\transformed\\ui\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\PLE\\.gradle\\caches\\9.4.1\\transforms\\e18b2d4cf8b24a153ca8f2621d079e1c\\transformed\\ui\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\PLE\\.gradle\\caches\\9.4.1\\transforms\\8f512f282f90efa9f8ffaa9425659b5b\\transformed\\material3\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\PLE\\.gradle\\caches\\9.4.1\\transforms\\77610da93bebde9089dcc9e65f27296a\\transformed\\material3\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

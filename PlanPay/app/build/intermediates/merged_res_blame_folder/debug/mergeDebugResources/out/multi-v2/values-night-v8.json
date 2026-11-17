@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\PLE\\.gradle\\daemon\\9.4.1\\com.maapp.planpay.app-mergeDebugResources-35:\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "D:\\ma app\\PlanPay\\app\\src\\main\\res\\values-night\\colors.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "43",
+                        "endOffsets": "94"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.maapp.planpay.app-mergeDebugResources-35:/values-night-v8/values-night-v8.xml",
+            "map": [
+                {
+                    "source": "D:\\ma app\\PlanPay\\app\\src\\main\\res\\values-night\\colors.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "43",
+                        "endOffsets": "94"
+                    }
+                }
+            ]
+        }
+    ]
+}

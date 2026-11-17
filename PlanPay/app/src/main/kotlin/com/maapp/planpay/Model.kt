@@ -67,6 +67,10 @@ data class Expense(
 @Serializable
 data class Income(val id: Long = Ids.next(), val name: String, val amount: Int, val date: String, val note: String = "")
 
+/** รายการเฉพาะวันในปฏิทิน เช่น "ค่าข้าว 60" แยกจากรายจ่ายหลัก นับรวมในยอดค้างจ่ายจนกว่าจะติ๊กว่าจ่ายแล้ว */
+@Serializable
+data class DayItem(val id: Long = Ids.next(), val name: String, val amount: Int, val date: String, val done: Boolean = false)
+
 @Serializable
 data class StockItem(
     val id: Long = Ids.next(),
@@ -87,6 +91,7 @@ data class AppData(
     val priorities: List<Tag> = emptyList(),
     val stock: List<StockItem> = emptyList(),
     val incomes: List<Income> = emptyList(),
+    val dayItems: List<DayItem> = emptyList(),
 )
 
 // ---------- ไฟล์ข้อมูล / ไฟล์สำรอง ----------
@@ -253,3 +258,31 @@ fun AppData.restock(buyName: (String) -> String): AppData {
     }
     return if (buys.isEmpty()) this else copy(expenses = expenses + buys)
 }
+
+// ---------- ปฏิทิน ----------
+
+/** ช่องของตารางเดือน เริ่มสัปดาห์ที่วันอาทิตย์ (null = ช่องว่างก่อนวันที่ 1) */
+fun monthCells(month: YearMonth): List<LocalDate?> {
+    val blanks = month.atDay(1).dayOfWeek.value % 7 // จันทร์=1 … อาทิตย์=7 -> อาทิตย์=0
+    return List(blanks) { null } + (1..month.lengthOfMonth()).map { month.atDay(it) }
+}
+
+/** ยอดที่ยังไม่ได้จ่ายของรายการที่ครบกำหนดในเดือนนั้น รวมรายการเฉพาะวัน */
+fun AppData.dueUnpaidIn(month: YearMonth) =
+    expenses.filter { it.due?.startsWith(month.toString()) == true }.sumOf { it.unpaid } +
+        dayItems.filter { !it.done && it.date.startsWith(month.toString()) }.sumOf { it.amount }
+
+/** ยอดค้างจ่ายทั้งหมด: รายจ่ายหลัก + รายการเฉพาะวันที่ยังไม่ติ๊ก (รายการเฉพาะวันไม่ถูกนำไปคิดยอดต้องเก็บต่อวัน) */
+val AppData.totalUnpaid get() = expenses.sumOf { it.unpaid } + dayItems.filter { !it.done }.sumOf { it.amount }
+
+/**
+ * เงินที่ต้องเก็บในวันนั้น ตามแผนที่คิดจากวันนี้: แต่ละรายการเก็บวันละเท่ากันตั้งแต่วันนี้ถึงวันก่อนครบกำหนด
+ * (ครบกำหนดวันนี้ = เก็บวันนี้ทั้งหมด) วันที่ผ่านมาแล้ว = 0
+ */
+fun AppData.saveOn(date: LocalDate, today: LocalDate): Int =
+    if (date < today) 0
+    else expenses.sumOf { e ->
+        val due = e.due?.let(LocalDate::parse)
+        val rate = e.daily(today)
+        if (rate != null && due != null && (date < due || date == today)) rate else 0
+    }

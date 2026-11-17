@@ -46,6 +46,9 @@ object Store {
         tmp.renameTo(file)
     }
 
+    /** ใช้เฉพาะตอน render รูปหน้าจอตัวอย่าง (Shots.kt): ใส่ข้อมูลโดยไม่แตะไฟล์ */
+    fun previewData(d: AppData) { data = d }
+
     /** กู้คืนจากไฟล์สำรอง: เก็บข้อมูลก่อนกู้คืนไว้อีกชุดเผื่อเลือกไฟล์ผิด */
     fun replace(d: AppData) {
         if (file.exists()) file.copyTo(File(app.filesDir, "data.before-restore.json"), overwrite = true)

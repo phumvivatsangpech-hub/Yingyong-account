@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.maapp.planpay.ShotsKt" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-11-17T02:00:34.428Z" hostname="ADMIN-PHUMVIVAT" time="54.026">
+  <properties/>
+  <testcase name="Income" classname="com.maapp.planpay.ShotsKt" time="0.16">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="Income"/>
+      <property name="PreviewScreenshot.methodName" value="Income"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/Income_d6b40362_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/Income_d6b40362_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="WithTabs" classname="com.maapp.planpay.ShotsKt" time="0.045">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="WithTabs"/>
+      <property name="PreviewScreenshot.methodName" value="WithTabs"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/WithTabs_d6b40362_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/WithTabs_d6b40362_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="HomeDark" classname="com.maapp.planpay.ShotsKt" time="0.026">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="HomeDark"/>
+      <property name="PreviewScreenshot.methodName" value="HomeDark"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/HomeDark_56dfaf05_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/HomeDark_56dfaf05_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="Summary" classname="com.maapp.planpay.ShotsKt" time="0.052">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="Summary"/>
+      <property name="PreviewScreenshot.methodName" value="Summary"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/Summary_c281ed04_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/Summary_c281ed04_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="Calendar" classname="com.maapp.planpay.ShotsKt" time="0.139">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="Calendar"/>
+      <property name="PreviewScreenshot.methodName" value="Calendar"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/Calendar_d7d4ddda_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/Calendar_d7d4ddda_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="Edit" classname="com.maapp.planpay.ShotsKt" time="0.056">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="Edit"/>
+      <property name="PreviewScreenshot.methodName" value="Edit"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/Edit_d6b40362_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/Edit_d6b40362_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="Home" classname="com.maapp.planpay.ShotsKt" time="0.025">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="Home"/>
+      <property name="PreviewScreenshot.methodName" value="Home"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/Home_d6b40362_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/Home_d6b40362_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="More" classname="com.maapp.planpay.ShotsKt" time="0.297">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="More"/>
+      <property name="PreviewScreenshot.methodName" value="More"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/More_d6b40362_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/More_d6b40362_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="Tags" classname="com.maapp.planpay.ShotsKt" time="0.104">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="Tags"/>
+      <property name="PreviewScreenshot.methodName" value="Tags"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/Tags_d6b40362_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/Tags_d6b40362_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="Stock" classname="com.maapp.planpay.ShotsKt" time="0.162">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="Stock"/>
+      <property name="PreviewScreenshot.methodName" value="Stock"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/Stock_d6b40362_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/Stock_d6b40362_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="DetailPaid" classname="com.maapp.planpay.ShotsKt" time="0.432">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="DetailPaid"/>
+      <property name="PreviewScreenshot.methodName" value="DetailPaid"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/DetailPaid_ed24fe1a_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/DetailPaid_ed24fe1a_0.png"/>
+    </properties>
+  </testcase>
+  <testcase name="Detail" classname="com.maapp.planpay.ShotsKt" time="0.216">
+    <properties>
+      <property name="PreviewScreenshot.previewName" value="Detail"/>
+      <property name="PreviewScreenshot.methodName" value="Detail"/>
+      <property name="PreviewScreenshot.refImagePath" value="app/src/screenshotTestDebug/reference/com/maapp/planpay/ShotsKt/Detail_0b8b4df0_0.png"/>
+      <property name="PreviewScreenshot.newImagePath" value="app/build/outputs/screenshotTest-results/preview/debug/rendered/com/maapp/planpay/ShotsKt/Detail_0b8b4df0_0.png"/>
+    </properties>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

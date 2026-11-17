@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.maapp.planpay.DataTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-17T01:59:39.903Z" hostname="ADMIN-PHUMVIVAT" time="0.238">
+  <properties/>
+  <testcase name="unpaidIsGroupedByCategoryLargestFirst" classname="com.maapp.planpay.DataTest" time="0.01"/>
+  <testcase name="incomeIsSummedPerMonth" classname="com.maapp.planpay.DataTest" time="0.008"/>
+  <testcase name="dataFileFromFirstVersionStillOpens" classname="com.maapp.planpay.DataTest" time="0.046"/>
+  <testcase name="backupRoundTripKeepsEverything" classname="com.maapp.planpay.DataTest" time="0.101"/>
+  <testcase name="filesThatAreNotBackupsAreRejected" classname="com.maapp.planpay.DataTest" time="0.071"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

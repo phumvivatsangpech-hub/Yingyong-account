@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
+import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
@@ -17,12 +17,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -47,7 +48,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Store.init(applicationContext)
-        enableEdgeToEdge()
+        dateLocale = java.util.Locale.forLanguageTag(getString(R.string.locale_tag))
+        enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT)) // แถบหัวสีเข้มทุกหน้า ไอคอนสถานะต้องสีอ่อนเสมอ
         setContent { App() }
     }
 }
@@ -63,9 +65,9 @@ private val BarsIcon: ImageVector = ImageVector.Builder("Bars", 24.dp, 24.dp, 24
 
 private val tabs = listOf(
     Triple("home", R.string.home_title, Icons.AutoMirrored.Filled.List),
+    Triple("calendar", R.string.calendar, Icons.Default.DateRange),
     Triple("income", R.string.income, Icons.Default.AddCircle),
     Triple("summary", R.string.tab_summary, BarsIcon),
-    Triple("stock", R.string.stock, Icons.Default.ShoppingCart),
     Triple("more", R.string.tab_more, Icons.Default.Menu),
 )
 
@@ -81,16 +83,17 @@ fun App() = AppTheme {
     BackHandler(stack.size > 1, back)
     val atRoot = stack.size == 1
 
-    Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+    // imePadding: แอพวาดเต็มจอ ต้องดันเนื้อหาขึ้นเองเมื่อคีย์บอร์ดเปิด ไม่งั้นช่องกรอกด้านล่างถูกบัง
+    Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background).imePadding()) {
         AnimatedContent(
             targetState = stack.size to stack.last(),
             // แถบแท็บด้านล่างกันพื้นที่ปุ่มนำทางของระบบให้แล้ว หน้าข้างในไม่ต้องเว้นซ้ำ
             modifier = Modifier.weight(1f).then(if (atRoot) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier),
             transitionSpec = {
                 val dir = targetState.first.compareTo(initialState.first) // 1 = เข้าหน้าลึกขึ้น, -1 = ย้อนกลับ, 0 = สลับแท็บ
-                if (dir == 0) fadeIn(tween(150)) togetherWith fadeOut(tween(100))
-                else (slideInHorizontally(tween(220)) { it / 5 * dir } + fadeIn(tween(220))) togetherWith
-                    (slideOutHorizontally(tween(220)) { -it / 5 * dir } + fadeOut(tween(120)))
+                if (dir == 0) fadeIn(Motion.spec(Motion.quick)) togetherWith fadeOut(Motion.spec(Motion.quick))
+                else (slideInHorizontally(Motion.spec()) { it / 5 * dir } + fadeIn(Motion.spec())) togetherWith
+                    (slideOutHorizontally(Motion.spec()) { -it / 5 * dir } + fadeOut(Motion.spec(Motion.quick)))
             },
             label = "nav",
         ) { (_, route) ->
@@ -105,21 +108,27 @@ fun App() = AppTheme {
                     "stockEdit" -> StockEditScreen(id, back)
                     "income" -> IncomeScreen()
                     "summary" -> SummaryScreen()
-                    "stock" -> StockScreen(go)
+                    "stock" -> StockScreen(go, back)
+                    "calendar" -> CalendarScreen(go)
                     "more" -> MoreScreen(go)
                     else -> HomeScreen(go)
                 }
             }
         }
-        if (atRoot) NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
+        if (atRoot) TabBar(stack[0]) { stack[0] = it }
+    }
+}
+
+@Composable
+fun TabBar(current: String, onSelect: (String) -> Unit) {
+        NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
             tabs.forEach { (route, label, icon) ->
                 NavigationBarItem(
-                    selected = stack[0] == route,
-                    onClick = { stack[0] = route },
+                    selected = current == route,
+                    onClick = { onSelect(route) },
                     icon = { Icon(icon, null) },
                     label = { Text(stringResource(label), maxLines = 1) },
                 )
             }
         }
-    }
 }

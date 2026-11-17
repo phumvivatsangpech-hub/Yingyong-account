@@ -15,9 +15,15 @@
         <item>กลาง</item>
         <item>ต่ำ</item>
     </string-array>
+    <color name="icon_bg">#14342B</color>
+    <color name="icon_fg">#F2A81D</color>
+    <color name="window_bg">#F1F4EF</color>
     <string name="add">เพิ่ม</string>
+    <string name="add_day_item">เพิ่มรายการของวันนี้</string>
     <string name="add_deposit">เก็บเงิน</string>
     <string name="add_expense">เพิ่มรายการ</string>
+    <string name="add_image">เพิ่มรูป</string>
+    <string name="add_income">เพิ่มรายรับ</string>
     <string name="add_link">เพิ่มลิงก์</string>
     <string name="add_stock">เพิ่มของใช้</string>
     <string name="add_sub">เพิ่มรายการย่อย</string>
@@ -28,26 +34,49 @@
     <string name="amount_computed">ยอดคำนวณจากรายการย่อยหรือลิงก์</string>
     <string name="app_name">ยิ่งยงทอแสงสาดส่อง ยิ่งกว่ายิ่งยวดสวดมนต์</string>
     <string name="back">กลับ</string>
+    <string name="backup_done">บันทึกไฟล์สำรองแล้ว</string>
+    <string name="backup_export">สำรองข้อมูลเป็นไฟล์</string>
+    <string name="backup_failed">บันทึกไฟล์สำรองไม่สำเร็จ</string>
+    <string name="backup_note">ไฟล์สำรองเก็บข้อมูลทั้งหมด ยกเว้นรูปภาพ ควรสำรองเป็นประจำ เพราะถ้าถอนการติดตั้งแอพ ข้อมูลในเครื่องจะหาย</string>
+    <string name="backup_restore">กู้คืนจากไฟล์สำรอง</string>
+    <string name="balance_after">คงเหลือหลังหักยอดค้างจ่าย</string>
+    <string name="balance_short">คงเหลือ</string>
     <string name="buy_item">ซื้อ %1$s</string>
+    <string name="by_category">ยอดค้างจ่ายตามหมวดหมู่</string>
+    <string name="by_priority">ยอดค้างจ่ายตามความสำคัญ</string>
+    <string name="calendar">ปฏิทิน</string>
+    <string name="calendar_day_desc">%1$s มี %2$d รายการ</string>
+    <string name="calendar_legend">จุดสีคือรายจ่ายที่ครบกำหนดในวันนั้น สีตามความสำคัญ จุดสีเทาคือรายการของวัน ขีดสีเขียวคือวันที่มีรายรับ</string>
     <string name="cancel">ยกเลิก</string>
     <string name="categories">หมวดหมู่</string>
     <string name="category">หมวดหมู่</string>
     <string name="clear">ล้าง</string>
+    <string name="close">ปิด</string>
     <string name="color_n">สี %1$d</string>
     <string name="confirm_delete">ลบ %1$s ใช่ไหม</string>
     <string name="copied">สร้างรายการเดือนหน้าแล้ว</string>
     <string name="copy_next_month">สร้างของเดือนหน้า</string>
+    <string name="data">ข้อมูล</string>
+    <string name="date">วันที่</string>
+    <string name="day_item">รายการของวัน</string>
+    <string name="day_items">รายการของวันนี้</string>
+    <string name="day_unit">วัน</string>
     <string name="delete">ลบ</string>
     <string name="deposit_amount">จำนวนที่เก็บ (บาท)</string>
+    <string name="deposit_history">ประวัติการเก็บเงิน</string>
     <string name="due">วันครบกำหนด</string>
-    <string name="due_line">ครบกำหนด %1$s (อีก %2$d วัน) · เก็บวันละ %3$s</string>
-    <string name="due_on">ครบกำหนด %1$s</string>
+    <string name="due_in">ครบกำหนด %1$s (อีก %2$d วัน)</string>
+    <string name="due_this_month">ยอดที่ครบกำหนดจ่ายในเดือนนี้</string>
     <string name="edit">แก้ไข</string>
     <string name="edit_expense">แก้ไขรายการ</string>
     <string name="edit_stock">แก้ไขของใช้</string>
     <string name="empty">ยังไม่มีรายการ</string>
+    <string name="empty_home">ยังไม่มีรายการ กดปุ่มบวกเพื่อเพิ่มรายจ่ายแรก</string>
+    <string name="empty_income">ยังไม่มีรายรับ กดปุ่มบวกเพื่อเพิ่ม</string>
     <string name="from_stock">ใช้ %1$s %2$d %3$s</string>
     <string name="home_title">รายจ่าย</string>
+    <string name="image_n">รูปที่ %1$d</string>
+    <string name="images">รูปภาพ</string>
     <string name="import_confirm">นำเข้า</string>
     <string name="import_done">นำเข้า %1$d รายการแล้ว</string>
     <string name="import_empty">ไม่พบรายการในไฟล์ คอลัมน์ที่ใช้ได้: ชื่อ, รายการย่อย, จำนวนเงิน, จำนวน, ของใช้, หมวดหมู่, ความสำคัญ, วันครบกำหนด, หมายเหตุ, ลิงก์</string>
@@ -56,20 +85,29 @@
     <string name="import_found">พบ %1$d รายการ เช่น %2$s\n\nนำเข้าทั้งหมดใช่ไหม</string>
     <string name="import_xls">ไม่รองรับไฟล์ .xls ให้บันทึกเป็น .xlsx หรือ .csv ก่อน</string>
     <string name="in_stock">มีของ</string>
+    <string name="income">รายรับ</string>
+    <string name="income_this_month">รายรับเดือนนี้</string>
     <string name="links">ลิงก์สินค้า</string>
+    <string name="locale_tag" translatable="false">th-TH</string>
+    <string name="manage">จัดการ</string>
     <string name="mark_paid">จ่ายแล้ว</string>
     <string name="mark_unpaid">ยกเลิกจ่ายแล้ว</string>
     <string name="menu">เมนู</string>
     <string name="move_down">เลื่อนลง</string>
     <string name="move_up">เลื่อนขึ้น</string>
     <string name="name">ชื่อ</string>
+    <string name="next_month">เดือนถัดไป</string>
+    <string name="no_items_day">ไม่มีรายการครบกำหนดจ่ายในวันนี้</string>
     <string name="none">ไม่ระบุ</string>
     <string name="note">หมายเหตุ</string>
     <string name="ok">ตกลง</string>
     <string name="open">เปิด</string>
     <string name="overdue_line">เลยกำหนด %1$s ขาดอีก %2$s</string>
+    <string name="overdue_short">เลยกำหนด ขาดอีก %1$s</string>
     <string name="overdue_summary">เลยกำหนด %1$d รายการ ขาดอีก %2$s</string>
     <string name="packs">จำนวน %1$d ชิ้น</string>
+    <string name="per_day">เก็บวันละ %1$s</string>
+    <string name="prev_month">เดือนก่อน</string>
     <string name="price">ราคา (บาท)</string>
     <string name="priorities">ความสำคัญ</string>
     <string name="priority">ความสำคัญ</string>
@@ -77,9 +115,15 @@
     <string name="refill">เติม</string>
     <string name="refill_amount">จำนวนที่เติม</string>
     <string name="remaining">คงเหลือ</string>
+    <string name="remaining_to_pay">เหลือต้องจ่าย %1$s</string>
+    <string name="restore_action">กู้คืน</string>
+    <string name="restore_confirm">ข้อมูลปัจจุบัน (%1$d รายการ) จะถูกแทนที่ด้วยข้อมูลจากไฟล์สำรอง (%2$d รายการ) ใช่ไหม</string>
+    <string name="restore_done">กู้คืนข้อมูลแล้ว</string>
+    <string name="restore_invalid">ไฟล์นี้ไม่ใช่ไฟล์สำรองของแอพ ข้อมูลเดิมไม่ถูกแก้ไข</string>
     <string name="save">บันทึก</string>
-    <string name="save_per_day_total">ต้องเก็บรวมวันละ %1$s</string>
+    <string name="save_on_day">ต้องเก็บในวันนี้</string>
     <string name="saved_of">เก็บแล้ว %1$s จาก %2$s</string>
+    <string name="saved_pct">เก็บแล้ว %1$d%%</string>
     <string name="shop">ชื่อร้าน (ไม่ใส่ก็ได้)</string>
     <string name="sold_out">หมด</string>
     <string name="stock">ของใช้</string>
@@ -87,13 +131,19 @@
     <string name="stock_remaining">เหลือ %1$d %2$s</string>
     <string name="stock_short">ของไม่พอ ขาด %1$d %2$s</string>
     <string name="sub_items">รายการย่อย</string>
+    <string name="tab_more">เพิ่มเติม</string>
     <string name="tab_paid">จ่ายแล้ว</string>
+    <string name="tab_summary">สรุป</string>
     <string name="tab_unpaid">ยังไม่จ่าย</string>
-    <string name="total_unpaid">ยอดที่ยังไม่ได้จ่าย</string>
+    <string name="today_save">วันนี้ต้องเก็บ</string>
     <string name="unit">หน่วย (เช่น รอบ)</string>
     <string name="unit_price">ราคาต่อหน่วย (บาท)</string>
     <string name="units_per_pack">ซื้อ 1 ชิ้นใช้ได้กี่หน่วย</string>
+    <string name="unpaid_short">ค้างจ่าย</string>
     <string name="url">ลิงก์ (URL)</string>
     <string name="use_stock">ใช้จากของใช้</string>
-    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar"/>
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        
+        <item name="android:windowBackground">@color/window_bg</item>
+    </style>
 </resources>

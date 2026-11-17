@@ -97,8 +97,8 @@ fun ImagesSection(e: Expense) {
                     }
                 }
             }
-            TextButton({ picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }) {
-                Text(stringResource(R.string.add_image))
+            SmallAction(stringResource(R.string.add_image), strong = true) {
+                picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
             }
         }
     }
@@ -121,4 +121,10 @@ fun ImagesSection(e: Expense) {
             }
         }
     }
+}
+
+/** ลบรายการพร้อมไฟล์รูปของมัน (ไม่ตรวจสต็อกตอนลบ ไม่งั้นรายการซื้อที่เพิ่งลบจะถูกสร้างกลับมาทันที) */
+fun deleteExpense(ctx: Context, e: Expense) {
+    Store.update(checkStock = false) { copy(expenses = expenses.filter { it.id != e.id }) }
+    e.images.forEach { File(imagesDir(ctx), it).delete() }
 }
